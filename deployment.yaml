@@ -1,0 +1,96 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myfirstapp
+  namespace: apps
+  labels:
+    app: myfirstapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: myfirstapp
+  template:
+    metadata:
+      labels:
+        app: myfirstapp
+    spec:
+      containers:
+        - name: myfirstapp
+          image: usuroor/myfirstapp:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysecondapp
+  namespace: apps
+  labels:
+    app: mysecondapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mysecondapp
+  template:
+    metadata:
+      labels:
+        app: mysecondapp
+    spec:
+      containers:
+        - name: mysecondapp
+          image: usuroor/mysecondapp:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mythirdapp
+  namespace: apps
+  labels:
+    app: mythirdapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mythirdapp
+  template:
+    metadata:
+      labels:
+        app: mythirdapp
+    spec:
+      containers:
+        - name: mysecondapp
+          image: usuroor/mythirdapp:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
