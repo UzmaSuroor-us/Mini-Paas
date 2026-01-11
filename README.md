@@ -130,7 +130,7 @@ Then access in browser:
 
 ## Author
 
-Uzzu  
+Uzma  
 DevOps Engineer | Kubernetes | Cloud
 
 ---
